@@ -41,11 +41,6 @@ class EmployeeController {
 	}
 	// end::get-aggregate-root[]
 
-	@PostMapping("/employees")
-	Employee newEmployee(@RequestBody Employee newEmployee) {
-		return repository.save(newEmployee);
-	}
-
 	// Single item
 
 	// tag::get-single-item[]
@@ -58,6 +53,11 @@ class EmployeeController {
 		return EntityModel.of(employee);
 	}
 	// end::get-single-item[]
+
+	@PostMapping("/employees")
+	Employee newEmployee(@RequestBody Employee newEmployee) {
+		return repository.save(newEmployee);
+	}
 
 	@PutMapping("/employees/{id}")
 	Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
