@@ -34,7 +34,7 @@ class EmployeeController {
 	CollectionModel<EntityModel<Employee>> all() {
 
 		List<EntityModel<Employee>> employees = repository.findAll().stream()
-				.map(employee -> EntityModel.of(employee))
+				.map(EntityModel::of)
 				.collect(Collectors.toList());
 
 		return CollectionModel.of(employees);
